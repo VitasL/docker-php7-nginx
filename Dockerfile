@@ -124,6 +124,8 @@ RUN apk add --no-cache tzdata \
     && ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
     && echo $TIMEZONE > /etc/timezone
 
+COPY ./php-fpm/php.ini /usr/local/etc/php/php.ini
+
 # mbstring opcache pdo mysql
 RUN docker-php-ext-install mbstring opcache pdo pdo_mysql mysql mysqli
 
