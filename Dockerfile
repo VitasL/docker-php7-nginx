@@ -157,6 +157,8 @@ RUN apk add --no-cache curl \
 RUN apk update && apk add autoconf openssl-dev g++ make && \
     pecl install mongo && \
     docker-php-ext-enable mongo && \
+    pecl install mongodb && \
+    docker-php-ext-enable mongodb && \
     apk del --purge autoconf openssl-dev g++ make
 
 COPY ./php-fpm/docker-php-entrypoint /usr/local/bin/
